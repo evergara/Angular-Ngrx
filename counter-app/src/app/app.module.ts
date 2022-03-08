@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { StoreModule } from '@ngrx/store';
 
+import { AppReducer } from 'src/redux/app.redux';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CountersModule } from './counters/counters.module';
+
 
 @NgModule({
   declarations: [
@@ -12,7 +14,7 @@ import { CountersModule } from './counters/counters.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CountersModule
+    StoreModule.forRoot(AppReducer)
   ],
   providers: [],
   bootstrap: [AppComponent]
