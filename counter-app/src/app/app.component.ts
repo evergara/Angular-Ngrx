@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/redux/app.state';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -9,17 +10,10 @@ import { AppState } from 'src/redux/app.state';
 })
 export class AppComponent {
   title = 'counter-app';
-  private _counter: number;
+  counter$: Observable<number>;
 
   constructor( private store: Store<AppState>) {
-    this._counter = 0;
-    this.store.select('counter').subscribe((counterState) => {
-      this._counter = counterState;
-      console.log('counterState', counterState);
-    })
+    this.counter$ = this.store.select('counter');
   } 
   
-  public get counter(): number{
-    return this._counter;
-  }
 }

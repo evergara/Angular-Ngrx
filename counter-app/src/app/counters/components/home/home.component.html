@@ -1,4 +1,6 @@
-<h2>Counter: {{ counter }}</h2>
+<div>
+  <h2>Counter: {{ _counter$ | async }}</h2>
+</div>
 <button (click)="increment()">+1</button>
 <button (click)="decrement()">-1</button>
 <button (click)="reset()">Reset</button>

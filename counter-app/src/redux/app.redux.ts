@@ -1,7 +1,6 @@
-import { AppState } from './app.state';
-import { CounterReducer } from './counter/counter.reducer';
+import { counterReducer } from './counter/counter.reducer';
 
 
 export const AppReducer = {
-    counter: CounterReducer
+    counter: counterReducer
 }
