@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Action, Store } from '@ngrx/store';
-import { AppState } from 'src/redux/app.state';
-import { INCREMNET, DECREMENT, RESET } from 'src/redux/counter/counter.action.constants';
+import { Observable } from 'rxjs';
+import { CounterService } from '../../counter.service';
+
 
 @Component({
   selector: 'app-home',
@@ -9,41 +9,32 @@ import { INCREMNET, DECREMENT, RESET } from 'src/redux/counter/counter.action.co
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  private _counter: number;
+  private _counter$: Observable<number>;
 
-  constructor( private store: Store<AppState>) {
-    this._counter = 10;
-    this.store.select('counter').subscribe((counterState) => {
-      this._counter = counterState;
-      console.log('counterState', counterState);
-    })
-   }
+  constructor(private counterService: CounterService){
+    this._counter$ = counterService.getState();
+  }
 
   ngOnInit(): void {
   }
   
-  public get counter(): number{
-    return this._counter;
+  public get counter(): Observable<number>{
+    return this._counter$;
   }
 
   increment(): void {
-    let action: Action = {
-      type: INCREMNET
-    }
-    this.store.dispatch(action);
+    this.counterService.increment();
   }
 
   decrement(): void {
-    let action: Action = {
-      type: DECREMENT
-    }
-    this.store.dispatch(action);
+    this.counterService.decrement();
   }
 
   reset(): void {
-    let action: Action = {
-      type: RESET
-    }
-    this.store.dispatch(action);
+    this.counterService.reset();
+  }
+
+  plus(): void {
+    this.counterService.plus(5);
   }
 }

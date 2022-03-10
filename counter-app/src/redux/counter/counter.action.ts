@@ -14,11 +14,11 @@ export class ResetAction implements Action {
     readonly type = RESET;
 }
 
-export class PlustAction implements Action {
+export class PlusAction implements Action {
     readonly type = PLUS;
 
     constructor(public payload: number){}
 }
 
 
-export type AllCounterActtion = IncrementAction | DecrementAction | ResetAction | PlustAction;
+export type AllCounterActtion = IncrementAction | DecrementAction | ResetAction | PlusAction;

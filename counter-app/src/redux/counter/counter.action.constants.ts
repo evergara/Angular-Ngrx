@@ -1,4 +1,4 @@
-export const INCREMNET: string = '[Counter Component] Increment';
-export const DECREMENT: string  = '[Counter Component] Decrement';
-export const RESET: string  = '[Counter Component] Reset';
-export const PLUS: string  = '[Counter Component] Plus';
+export const INCREMNET = '[Counter Component] Increment';
+export const DECREMENT  = '[Counter Component] Decrement';
+export const RESET  = '[Counter Component] Reset';
+export const PLUS  = '[Counter Component] Plus';
