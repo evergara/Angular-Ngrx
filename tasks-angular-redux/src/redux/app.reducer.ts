@@ -1,9 +1,8 @@
 import { ActionReducerMap } from '@ngrx/store';
 import { AppState } from '@redux/app.state';
-import { todosReducer } from '@redux/todo/todo.reducer';
+import { todoReducer } from '@redux/todo/todo.reducer';
 
 
-export const AppReducer: ActionReducerMap<AppState> =  {
-    //@ts-ignore
-    todos: todosReducer
+export const AppReducer: ActionReducerMap<AppState, any> =  {
+    todos: todoReducer,
 }

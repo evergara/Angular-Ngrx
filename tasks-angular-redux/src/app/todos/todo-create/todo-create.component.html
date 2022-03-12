@@ -1,0 +1,8 @@
+<div>
+  <label
+    >To do:
+    <input #todoName />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(todoName.value); todoName.value = ''">add</button>
+</div>

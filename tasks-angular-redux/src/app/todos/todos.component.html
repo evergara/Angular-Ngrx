@@ -2,4 +2,20 @@
   <header class="header">
     <h1>todos</h1>
   </header>
+  <nav>
+    <ul>
+      <li><a href="#">Inicio</a></li>
+    </ul>
+    <aside>
+      <app-todo-search></app-todo-search>
+    </aside>
+  </nav>
+  <main>
+    <app-todo-create (createTodo)="add($event)"></app-todo-create>
+    <app-todo-list
+      [todos]="todos"
+      (deleteEventTodo)="deleteTodo($event)"
+      (completedEventTodo)="completedTodo($event)"
+    ></app-todo-list>
+  </main>
 </section>
