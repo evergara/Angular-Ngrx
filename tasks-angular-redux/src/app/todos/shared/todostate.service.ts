@@ -1,4 +1,4 @@
-import { TodoAddAction, TodoRemoveAction } from '@redux/todo/todo.action';
+import { TodoAddAction, TodoRemoveAction, TodoToggleAction, TodoUpdateAction } from '@redux/todo/todo.action';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from '@redux/app.state';
@@ -19,6 +19,15 @@ export class TodostateService {
   deleteTodo(todo: Todo){
     console.log(todo);
      this.store.dispatch(new TodoRemoveAction(todo.id));
+  }
+
+  updateTodo(id: string, title: string){
+     this.store.dispatch(new TodoUpdateAction(id, title));
+  }
+
+  toggleTodo(todo: Todo){
+    console.log(todo);
+     this.store.dispatch(new TodoToggleAction(todo.id));
   }
 
   searchTodo(payload: string){

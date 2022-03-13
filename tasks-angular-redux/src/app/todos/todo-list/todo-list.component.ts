@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Todo } from '@redux/todo/todo.model';
+import { TodoUptadeDTO } from '../shared/dto/todoupdated.dto';
 
 @Component({
   selector: 'app-todo-list',
@@ -12,6 +13,8 @@ export class TodoListComponent implements OnInit {
   deleteEventTodo: EventEmitter<Todo> = new EventEmitter<Todo>();
   @Output() 
   completedEventTodo: EventEmitter<Todo> = new EventEmitter<Todo>();
+  @Output() 
+  updateEventTodo: EventEmitter<TodoUptadeDTO> = new EventEmitter<TodoUptadeDTO>();
 
   constructor() { 
     this._todos = [];
@@ -34,6 +37,10 @@ export class TodoListComponent implements OnInit {
     this.deleteEventTodo.emit(todo);
   }
 
+  updateTodo(data: TodoUptadeDTO): void {
+    this.updateEventTodo.emit(data);
+  }
+  
   completedTodo(todo: Todo): void {
     this.completedEventTodo.emit(todo);
   }

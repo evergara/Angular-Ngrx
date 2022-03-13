@@ -1,5 +1,11 @@
 <li>
-  <input type="checkbox" />
+  <input type="checkbox" [checked]="todo.completed" (click)="completed()" />
   <p>{{ todo.title }}</p>
+  <input
+    type="text"
+    [(ngModel)]="title"
+    [value]="todo.title"
+    (keyup.enter)="updateTodo()"
+  />
   <button (click)="delete()">x</button>
 </li>

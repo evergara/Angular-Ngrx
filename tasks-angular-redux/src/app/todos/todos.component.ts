@@ -5,6 +5,7 @@ import { Todo } from '@redux/todo/todo.model';
 import { TodostateService } from './shared/todostate.service';
 import { Store } from '@ngrx/store';
 import { AppState } from '@redux/app.state';
+import { TodoUptadeDTO } from './shared/dto/todoupdated.dto';
 
 @Component({
   selector: 'app-todos',
@@ -36,8 +37,12 @@ export class TodosComponent implements OnInit {
     this.serviceTodo.deleteTodo(todo)
   }
 
+  updateTodo(data: TodoUptadeDTO): void {
+    this.serviceTodo.updateTodo(data.id, data.title)
+  }
+  
   completedTodo(todo: Todo): void {
-     console.log('......');
+    this.serviceTodo.toggleTodo(todo)
   }
 
   private createTodo(title: string): Todo {
