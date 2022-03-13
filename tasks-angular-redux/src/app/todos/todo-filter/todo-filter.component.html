@@ -19,13 +19,13 @@
   <span>{{ 14 }} item left</span>
   <ul>
     <li>
-      <a>All</a>
+      <a (click)="doFilter('SHOW_ALL')">All</a>
     </li>
     <li>
-      <a>Active</a>
+      <a (click)="doFilter('SHOW_ACTIVE')">Active</a>
     </li>
     <li>
-      <a>Completed</a>
+      <a (click)="doFilter('SHOW_DONE')">Completed</a>
     </li>
   </ul>
   <button (clic)="clearComplete()">Clear completed</button>

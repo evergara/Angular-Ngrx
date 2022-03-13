@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TodostateService } from '../shared/todostate.service';
 
 @Component({
   selector: 'app-todo-filter',
@@ -7,12 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodoFilterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private todostateService: TodostateService) { }
 
   ngOnInit(): void {
   }
 
-  clearComplete(): void {
-    
+  doFilter(filter: string): void {
+    console.log(filter);
+    this.todostateService.filter(filter);
   }
+
+  clearComplete(): void {
+    console.log();
+  }
+
 }

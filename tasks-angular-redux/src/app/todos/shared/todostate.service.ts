@@ -4,6 +4,8 @@ import { Store } from '@ngrx/store';
 import { AppState } from '@redux/app.state';
 import { Todo } from '@redux/todo/todo.model';
 import { Observable } from 'rxjs';
+import { getVisibleTodo } from '@redux/select.redux';
+import { FilterSetAction } from '@redux/filter/filter.action';
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +37,10 @@ export class TodostateService {
   }
 
   allTodo(): Observable<Array<Todo>> {
-     return this.store.select('todos');
+     return this.store.select(getVisibleTodo);
+  }
+
+  filter(filter:string): void {
+    this.store.dispatch(new FilterSetAction(filter))
   }
 }
