@@ -9,6 +9,7 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoSearchComponent } from './todo-search/todo-search.component';
 import { TodoDetailComponent } from './todo-detail/todo-detail.component';
 import { TodoCreateComponent } from './todo-create/todo-create.component';
+import { TodoFilterComponent } from './todo-filter/todo-filter.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { TodoCreateComponent } from './todo-create/todo-create.component';
     TodoSearchComponent,
     TodoDetailComponent,
     TodoCreateComponent,
+    TodoFilterComponent,
   ],
   imports: [
     CommonModule,

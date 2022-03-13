@@ -1,10 +1,12 @@
-<h2>Mis tareas</h2>
-<ul *ngIf="todos">
-  <app-todo
-    *ngFor="let todo of todos"
-    [todo]="todo"
-    (deleteTodo)="deleteTodo($event)"
-    (completedTodo)="completedTodo($event)"
-    (updateEventTodo)="updateTodo($event)"
-  ></app-todo>
-</ul>
+<section>
+  <h2>Mis tareas</h2>
+  <ul *ngIf="todos">
+    <app-todo
+      *ngFor="let todo of todos"
+      [todo]="todo"
+      (deleteTodo)="deleteTodo($event)"
+      (completedTodo)="completedTodo($event)"
+      (updateEventTodo)="updateTodo($event)"
+    ></app-todo>
+  </ul>
+</section>
