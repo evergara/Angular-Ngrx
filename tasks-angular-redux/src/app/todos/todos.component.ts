@@ -33,7 +33,7 @@ export class TodosComponent implements OnInit {
   }
 
   deleteTodo(todo: Todo): void {
-    console.log('......');
+    this.serviceTodo.deleteTodo(todo)
   }
 
   completedTodo(todo: Todo): void {

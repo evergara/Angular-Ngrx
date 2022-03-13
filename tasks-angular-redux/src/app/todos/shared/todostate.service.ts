@@ -1,4 +1,4 @@
-import { TodoAddAction } from './../../../redux/todo/todo.action';
+import { TodoAddAction, TodoRemoveAction } from '@redux/todo/todo.action';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from '@redux/app.state';
@@ -13,8 +13,12 @@ export class TodostateService {
   constructor(private store: Store<AppState>) { }
 
   addTodo(todo:Todo){
-    console.log(todo);
     this.store.dispatch(new TodoAddAction(todo));
+  }
+
+  deleteTodo(todo: Todo){
+    console.log(todo);
+     this.store.dispatch(new TodoRemoveAction(todo.id));
   }
 
   searchTodo(payload: string){
